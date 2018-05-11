@@ -1,0 +1,16 @@
+
+<div class="jumbotron" ng-repeat="domain in main.listDomains">
+  <h1>{{domain.domain}}</h1>
+  <p ng-if="domain.requirements.type === 'A'">
+    CPF OU CNPJ
+    <input type="text" name="cpfCnpj" ng-model="domain.requirements.document.number" ui-br-cpfcnpj-mask ng-model-options="{allowInvalid: true}" ng-blur="main.checkDoc(domain.requirements)">
+  </p>
+  <p ng-if="domain.requirements.type === 'C'">
+    CPF
+    <input type="text" name="cpf" ng-model="domain.requirements.document.number" ui-br-cpf-mask ng-model-options="{allowInvalid: true}" ng-blur="main.checkDoc(domain.requirements)">
+  </p> 
+  <p ng-if="domain.requirements.type === 'J'">
+    CNPJ
+    <input type="text" name="cnpj" ng-model="domain.requirements.document.number" ui-br-cnpj-mask ng-model-options="{allowInvalid: true}" ng-blur="main.checkDoc(domain.requirements)">
+  </p>    
+</div>
